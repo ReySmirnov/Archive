@@ -1,0 +1,29 @@
+.list-content {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+}
+.list-element {
+    display: flex;
+    align-items: center;
+}
+.job-info {
+    flex: auto;
+}
+.list-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+}
+.safety-wing-img{
+    background-color: aqua;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+.job-name {
+    margin: 0;
+}

@@ -1,0 +1,39 @@
+
+.btn {
+    cursor: pointer;
+    padding: 10px 50px;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: ease-in-out;
+    animation-duration: .5s;
+    border-width: thin;
+    border-style: solid;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+}
+
+.btn-primary.btn-orange {
+    border-color: orange;
+    background-color: orange;
+    color: white;
+}
+
+.btn-primary.btn-grey {
+    border-color: grey;
+    background-color: grey;
+    color: white;
+}
+
+.btn-secondary.btn-orange {
+    border-color: orange;
+    background-color: transparent;
+    color: orange;
+}
+
+.btn-secondary.btn-grey {
+    border-color: grey;
+    background-color: transparent;
+    color: grey;
+}

@@ -1,9 +1,8 @@
+import Logo from './components/Logo/index.js'
 function Header() {
     return (
         <div>
-            <div className="logo">
-                BeRemote
-            </div>
+<Logo/>
         </div>
     )
 }
