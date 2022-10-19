@@ -7,7 +7,7 @@ const List = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-      getJobs().then((data) => {
+      getJobs(5).then((data) => {
           setJobs(data)
       })
   }, [])
@@ -19,7 +19,7 @@ const List = () => {
   return (
     <ul className="list-content">
       {jobs.map((job) => (
-        <ListItem description={job.description} {...job} />
+        <ListItem {...job} />
       ))}
     </ul>
   );
