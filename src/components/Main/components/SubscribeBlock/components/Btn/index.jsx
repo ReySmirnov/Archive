@@ -1,6 +1,6 @@
 import "./index.css";
 
-const Btn = ({ children, type, color }) => {
+const Btn = ({ children, type, color, disabled }) => {
   let typeClassName = "btn-primary";
   let colorClassName = "btn-grey";
   if (type === "secondary") {
@@ -9,7 +9,7 @@ const Btn = ({ children, type, color }) => {
   if (color === "orange") {
     colorClassName = "btn-orange";
   }
-  return <button className={`btn ${typeClassName} ${colorClassName}`}> {children} </button>;
+  return <button disabled={disabled} className={`btn ${typeClassName} ${colorClassName}`}> {children} </button>;
 };
 
 export default Btn;

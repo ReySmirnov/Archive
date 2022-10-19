@@ -1,7 +1,7 @@
 import Input from "./Input";
 import "./index.css"
 
-const InputEmail = ({ placeholder = "Type your email here", name }) => {
+const InputEmail = ({ placeholder = "Type your email here", name, value, onChange }) => {
   return (
     <div className="input-content">
       <img
@@ -11,7 +11,7 @@ const InputEmail = ({ placeholder = "Type your email here", name }) => {
         width="15"
         alt="image letter"
       />
-      <Input type="email" placeholder={placeholder} name={name} />
+      <Input type="email" placeholder={placeholder} name={name} value={value} onChange={onChange} />
     </div>
   );
 };

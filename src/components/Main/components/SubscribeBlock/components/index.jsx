@@ -1,8 +1,14 @@
 import "./index.css";
 import InputEmail from "./InputEmail";
 import Btn from "./Btn";
+import {useState} from "react";
 
 const SubscribeBlock = () => {
+    const [email, setEmail] = useState("")
+    const handleChange = (e) => {
+       setEmail(e.currentTarget.value)
+        console.log(e.currentTarget.value)
+    }
   return (
     <div className="subscribe-container">
       <div className="subscribe-wrapper">
@@ -16,8 +22,8 @@ const SubscribeBlock = () => {
           Subscribe and be the first <br /> who know about the new dream job
         </div>
         <div className="input-container">
-          <InputEmail />
-          <Btn type="primary" color="orange">Subscribe</Btn>
+          <InputEmail value={email} onChange={handleChange} />
+          <Btn disabled={!Boolean(email)} type="primary" color="orange">Subscribe</Btn>
         </div>
       </div>
     </div>
