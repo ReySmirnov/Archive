@@ -1,4 +1,4 @@
-const jobs= [
+const jobsData= [
     {
         id: "safetywing-graphic-designer",
         location: "worldwide",
@@ -206,4 +206,4 @@ const jobs= [
     },
 ];
 
-export default jobs;
+export default jobsData;
