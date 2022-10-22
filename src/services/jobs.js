@@ -1,4 +1,4 @@
-import jobsData from "./jobsData";
+import jobsData from "../data/jobsData";
 
 export const getJobs = async (countElements, currentPage) => {
   return {
@@ -9,3 +9,7 @@ export const getJobs = async (countElements, currentPage) => {
     countJobs: jobsData.length,
   };
 };
+export const getJob = async (id) => {
+    return jobsData.find((job)=>{
+        return id === job.id})
+}

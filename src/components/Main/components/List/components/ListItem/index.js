@@ -1,10 +1,11 @@
 import './index.css'
-const ListItem = ({title, location, workingHours, tags, company}) => {
+
+const ListItem = ({id, title, location, workingHours, tags, company}) => {
   return (
       <li className="list-element SafetyWing">
           <img className="list-img safety-wing-img" src="/companiesLogo/SafetyWing.png" alt="company logo"/>
           <div className="job-info">
-              <a href="#">
+              <a href={`/job/${id}`}>
                   <h4 className="job-name">
                       {title} at {company}
                   </h4>
