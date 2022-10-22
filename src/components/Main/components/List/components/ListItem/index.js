@@ -20,7 +20,9 @@ const ListItem = ({id, title, location, workingHours, tags, company}) => {
           </div>
           <div className="company-name">
               <h5>
+                  <a href={`/company/${company}`}>
                   {company}
+                  </a>
               </h5>
           </div>
       </li>
