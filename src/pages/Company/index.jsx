@@ -15,8 +15,8 @@ const Company = () => {
   return (
     <div>
       <ul>
-        <li>{company.id}</li>
-        <li>{company.location}</li>
+        <li>{company.title}</li>
+        <li>{company.logo}</li>
         <li>{company.description}</li>
       </ul>
       ;
