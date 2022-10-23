@@ -1,13 +1,12 @@
 import "./index.css";
 import InputEmail from "./InputEmail";
 import Btn from "./Btn";
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 
-const SubscribeBlock = () => {
-    const [email, setEmail] = useState("")
-    const handleChange = (e) => {
+const SubscribeBlock = ():React.ReactElement => {
+    const [email, setEmail] = useState<string>("")
+    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
        setEmail(e.currentTarget.value)
-        console.log(e.currentTarget.value)
     }
   return (
     <div className="subscribe-container">
@@ -23,7 +22,7 @@ const SubscribeBlock = () => {
         </div>
         <div className="input-container">
           <InputEmail value={email} onChange={handleChange} />
-          <Btn disabled={!Boolean(email)} type="primary" color="orange">Subscribe</Btn>
+          <Btn disabled={!Boolean(email)} type="primary" color="orange" onClick={()=>{}}>Subscribe</Btn>
         </div>
       </div>
     </div>

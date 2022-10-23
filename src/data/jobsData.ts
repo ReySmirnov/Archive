@@ -1,4 +1,6 @@
-const jobsData= [
+import {Job} from "../services/jobs";
+
+const jobsData: Job[] = [
     {
         id: "safetywing-graphic-designer",
         location: "worldwide",

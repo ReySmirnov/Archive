@@ -1,6 +1,8 @@
 import './index.css'
+import {JobWithCompany} from "../../../../../../services/jobs";
 
-const ListItem = ({id, title, location, workingHours, tags, company, companyData}) => {
+
+const ListItem = ({id, title, location, workingHours, tags, companyData}:JobWithCompany) => {
   return (
       <li className="list-element SafetyWing">
           <img className="list-img safety-wing-img" src="/companiesLogo/SafetyWing.png" alt="company logo"/>

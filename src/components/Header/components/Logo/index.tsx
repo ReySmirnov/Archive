@@ -1,5 +1,6 @@
 import './index.css'
-const Logo = () => {
+import React from "react";
+const Logo = ():React.ReactElement => {
   return (
       <div className="logo">
           BeRemote

@@ -1,4 +1,6 @@
-const companies = [
+import {Company} from "../services/companies";
+
+const companies: Company[] = [
   {
     id: "safetywing",
     title: "SafetyWing",

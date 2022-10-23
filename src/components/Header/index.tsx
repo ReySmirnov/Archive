@@ -1,5 +1,5 @@
-import Logo from './components/Logo/index.js'
-function Header() {
+import Logo from './components/Logo'
+function Header():React.ReactElement {
     return (
         <div>
 <Logo/>

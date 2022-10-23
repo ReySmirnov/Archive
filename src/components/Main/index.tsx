@@ -1,7 +1,8 @@
 import List from "./components/List";
 import SubscribeBlock from "./components/SubscribeBlock/components";
+import React from "react";
 
-const Main = () => {
+const Main = ():React.ReactElement => {
   return (
     <div>
       <List />

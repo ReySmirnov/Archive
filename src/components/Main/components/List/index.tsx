@@ -1,15 +1,17 @@
 import "./index.css";
 import ListItem from "./components/ListItem";
-import { getJobs } from "../../../../services/jobs";
-import { useEffect, useState } from "react";
+import {getJobs, Job, JobWithCompany} from "../../../../services/jobs";
+import React, { useEffect, useState } from "react";
 import Btn from "../SubscribeBlock/components/Btn";
 import { useNavigate, useParams } from "react-router-dom";
 
-const List = () => {
-  const [jobs, setJobs] = useState([]);
-  const [countPage, setCountPage] = useState(1);
-  const { page = 1 } = useParams();
-  const currentPage = Number(page);
+
+
+const List = ():React.ReactElement => {
+  const [jobs, setJobs] = useState<JobWithCompany[]>([]);
+  const [countPage, setCountPage] = useState<number>(1);
+  const { page = 1 } = useParams<{page:string|undefined}>();
+  const currentPage:number = Number(page);
   const navigate = useNavigate();
   useEffect(() => {
     getJobs(5, currentPage).then((jobsData) => {
@@ -17,13 +19,12 @@ const List = () => {
       setCountPage(Math.ceil(jobsData.countJobs / 5));
     });
   }, [currentPage]);
-  const setCurrentPage = (nextPage) => {
-    console.log(nextPage);
+  const setCurrentPage = (nextPage:number) => {
     navigate(`/${nextPage}`);
   };
 
   if (jobs.length === 0) {
-    return "loading";
+      return <>loading</>;
   }
 
   return (
