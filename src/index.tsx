@@ -7,7 +7,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Job from "./pages/Job";
 import Company from "./pages/Company";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
     <React.StrictMode>
         <BrowserRouter>

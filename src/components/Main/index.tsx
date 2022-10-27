@@ -1,5 +1,5 @@
 import List from "./components/List";
-import SubscribeBlock from "./components/SubscribeBlock/components";
+import SubscribeBlock from "./components/SubscribeBlock";
 import React from "react";
 
 const Main = ():React.ReactElement => {

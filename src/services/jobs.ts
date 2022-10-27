@@ -35,7 +35,7 @@ export const getJobs = async (
       return getCompany(idCompany) as Promise<Company>;
     })
   );
- const jobsWithCompanies: JobWithCompany[] = jobs.map((job, index) => {
+  const jobsWithCompanies: JobWithCompany[] = jobs.map((job, index) => {
     const companyData: Company = companies[index];
     return {
       ...job,
@@ -47,7 +47,7 @@ export const getJobs = async (
     countJobs: jobsData.length,
   };
 };
-export const getJob = async (id:string):Promise<Job|undefined> => {
+export const getJob = async (id: string): Promise<Job | undefined> => {
   return jobsData.find((job) => {
     return id === job.id;
   });

@@ -2,8 +2,10 @@ import "./index.css";
 import ListItem from "./components/ListItem";
 import {getJobs, Job, JobWithCompany} from "../../../../services/jobs";
 import React, { useEffect, useState } from "react";
-import Btn from "../SubscribeBlock/components/Btn";
+import Btn from "../../../Button";
 import { useNavigate, useParams } from "react-router-dom";
+import {Box} from "@mui/material";
+import {grey} from "@mui/material/colors";
 
 
 
@@ -34,25 +36,27 @@ const List = ():React.ReactElement => {
           <ListItem {...job} />
         ))}
       </ul>
-      <div>
+      <Box display="flex" alignItems={"center"}>
         <Btn
           type={"secondary"}
           color={"grey"}
+          size={"small"}
           disabled={currentPage === 1}
           onClick={() => setCurrentPage(currentPage - 1)}
         >
           Prev page
         </Btn>
-        {currentPage}
+        <Box padding={"10px"}>{currentPage}</Box>
         <Btn
           type={"secondary"}
           color={"grey"}
+          size={"small"}
           disabled={currentPage === countPage}
           onClick={() => setCurrentPage(currentPage + 1)}
         >
           Next page
         </Btn>
-      </div>
+      </Box>
     </div>
   );
 };
