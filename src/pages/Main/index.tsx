@@ -1,13 +1,14 @@
 import Header from "../../components/Header";
 import MainContent from "../../components/Main";
 import React from "react";
+import {Container} from "@mui/material";
 
 function Main():React.ReactElement {
   return (
-    <div>
+    <Container maxWidth="md">
       <Header />
       <MainContent />
-    </div>
+    </Container>
   );
 }
 

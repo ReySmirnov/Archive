@@ -1,29 +1,20 @@
 import "./index.css";
 import InputEmail from "../../../Input/InputEmail";
-import Btn from "../../../Button";
+import Button from "../../../Button";
 import React, { ChangeEvent, useState } from "react";
-import { Box, InputAdornment, Typography } from "@mui/material";
-import { Mail } from "@mui/icons-material";
+import { Box, Typography } from "@mui/material";
+import { useMediaQuery, Theme } from "@mui/material";
 
 const SubscribeBlock = (): React.ReactElement => {
   const [email, setEmail] = useState<string>("");
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
   };
+  const mobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down(700));
   return (
     <Box display={"flex"} justifyContent={"space-around"}>
-      <Box
-        sx={{
-          backgroundColor: "#FAFAFA",
-          borderRadius: "10px",
-          padding: "10px",
-        }}
-      >
-        <Box
-          sx={{ margin: "10px" }}
-          display={"flex"}
-          justifyContent={"space-around"}
-        >
+      <Box bgcolor={"#FAFAFA"} borderRadius={"10px"} padding={"10px 40px"}>
+        <Box margin={"10px"} display={"flex"} justifyContent={"space-around"}>
           <img
             src="/IconImg/imgClock.jpg"
             height="50"
@@ -41,24 +32,23 @@ const SubscribeBlock = (): React.ReactElement => {
         </Box>
         <Box
           display={"flex"}
+          flexDirection={mobile ? "column" : "row"}
           alignItems={"center"}
-          sx={{
-            "& > :not(style)": { m: 1 },
-          }}
         >
-          <InputEmail
-            size={"small"}
-            value={email}
-            onChange={handleChange}
-          />
-          <Btn
-            disabled={!Boolean(email)}
-            type="primary"
-            color="orange"
-            onClick={() => {}}
-          >
-            Subscribe
-          </Btn>
+          <Box margin={"5px"} width={mobile?"100%":undefined}>
+            <InputEmail fullWidth={true} size={"small"} value={email} onChange={handleChange} />
+          </Box>
+          <Box margin={"5px"} width={mobile?"100%":undefined}>
+            <Button
+                fullWidth={true}
+              disabled={!Boolean(email)}
+              type="primary"
+              color="orange"
+              onClick={() => {}}
+            >
+              Subscribe
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Box>

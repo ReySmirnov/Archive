@@ -1,43 +1,40 @@
 import "./index.css";
 import ListItem from "./components/ListItem";
-import {getJobs, Job, JobWithCompany} from "../../../../services/jobs";
+import { getJobs, JobWithCompany } from "../../../../services/jobs";
 import React, { useEffect, useState } from "react";
-import Btn from "../../../Button";
+import Button from "../../../Button";
 import { useNavigate, useParams } from "react-router-dom";
-import {Box} from "@mui/material";
-import {grey} from "@mui/material/colors";
+import { Box, List as ListMUI, Theme, useMediaQuery } from "@mui/material";
 
-
-
-const List = ():React.ReactElement => {
+const List = (): React.ReactElement => {
   const [jobs, setJobs] = useState<JobWithCompany[]>([]);
   const [countPage, setCountPage] = useState<number>(1);
-  const { page = 1 } = useParams<{page:string|undefined}>();
-  const currentPage:number = Number(page);
+  const { page = 1 } = useParams<{ page: string | undefined }>();
+  const currentPage: number = Number(page);
   const navigate = useNavigate();
+  const mobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down(700));
   useEffect(() => {
     getJobs(5, currentPage).then((jobsData) => {
       setJobs(jobsData.jobs);
       setCountPage(Math.ceil(jobsData.countJobs / 5));
     });
   }, [currentPage]);
-  const setCurrentPage = (nextPage:number) => {
+  const setCurrentPage = (nextPage: number) => {
     navigate(`/${nextPage}`);
   };
 
   if (jobs.length === 0) {
-      return <>loading</>;
+    return <>loading</>;
   }
-
   return (
-    <div>
-      <ul className="list-content">
+    <Box display={"flex"} flexDirection={"column"} alignItems={mobile?"center":undefined}>
+      <ListMUI>
         {jobs.map((job) => (
-          <ListItem {...job} />
+          <ListItem key={job.id} {...job} />
         ))}
-      </ul>
-      <Box display="flex" alignItems={"center"}>
-        <Btn
+      </ListMUI>
+      <Box display="flex" alignItems={"center"} justifyContent={"end"}>
+        <Button
           type={"secondary"}
           color={"grey"}
           size={"small"}
@@ -45,9 +42,9 @@ const List = ():React.ReactElement => {
           onClick={() => setCurrentPage(currentPage - 1)}
         >
           Prev page
-        </Btn>
+        </Button>
         <Box padding={"10px"}>{currentPage}</Box>
-        <Btn
+        <Button
           type={"secondary"}
           color={"grey"}
           size={"small"}
@@ -55,9 +52,9 @@ const List = ():React.ReactElement => {
           onClick={() => setCurrentPage(currentPage + 1)}
         >
           Next page
-        </Btn>
+        </Button>
       </Box>
-    </div>
+    </Box>
   );
 };
 export default List;

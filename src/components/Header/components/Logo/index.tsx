@@ -1,10 +1,11 @@
 import './index.css'
 import React from "react";
+import {Typography} from "@mui/material";
 const Logo = ():React.ReactElement => {
   return (
-      <div className="logo">
+      <Typography variant="h5" color={"primary"}>
           BeRemote
-      </div>
+      </Typography>
   )
 }
 export default Logo

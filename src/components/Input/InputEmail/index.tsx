@@ -14,7 +14,6 @@ const InputEmail = ({
   ...restProps
 }: InputEmailProps): React.ReactElement => {
   return (
-    <div>
       <NewInput
         {...restProps}
         placeholder={placeholder}
@@ -27,7 +26,6 @@ const InputEmail = ({
           ),
         }}
       ></NewInput>
-    </div>
   );
 };
 export default InputEmail;

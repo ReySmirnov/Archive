@@ -1,6 +1,6 @@
 import "./index.css";
 import React, { MouseEventHandler, PropsWithChildren, ReactNode } from "react";
-import { Button, ButtonProps, styled } from "@mui/material";
+import { Button as ButtonMUI, ButtonProps, styled } from "@mui/material";
 import { ButtonTypeMap } from "@mui/material/Button/Button";
 
 type BtnProps = {
@@ -8,11 +8,11 @@ type BtnProps = {
   color?: "orange" | "grey";
 } & Omit<ButtonProps, "type"|"color">;
 
-const NewBtn = styled(Button)<ButtonProps>(() => ({
+const NewBtn = styled(ButtonMUI)<ButtonProps>(() => ({
   textTransform: "none",
 }));
 
-const Btn = ({
+const Button = ({
   children,
   type,
   color,
@@ -28,12 +28,10 @@ const Btn = ({
   }
 
   return (
-    <div>
       <NewBtn variant={variant} color={setColor} {...restProps}>
         {children}
       </NewBtn>
-    </div>
   );
 };
 
-export default Btn;
+export default Button;

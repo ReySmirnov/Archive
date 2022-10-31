@@ -1,24 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import Main from './pages/Main';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import Main from "./pages/Main";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Job from "./pages/Job";
 import Company from "./pages/Company";
+import { createTheme, ThemeProvider } from "@mui/material";
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+const theme = createTheme();
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
+  <ThemeProvider theme={theme}>
     <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path={'/'} element={<Main/>}/>
-                <Route path={'/:page'} element={<Main/>}/>
-                <Route path={'/job/:id'} element={<Job/>}/>
-                <Route path={'/company/:id'} element={<Company/>}/>
-            </Routes>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path={"/"} element={<Main />} />
+          <Route path={"/:page"} element={<Main />} />
+          <Route path={"/job/:id"} element={<Job />} />
+          <Route path={"/company/:id"} element={<Company />} />
+        </Routes>
+      </BrowserRouter>
     </React.StrictMode>
+  </ThemeProvider>
 );
 
 //    /job/safetywing-data-analyst
