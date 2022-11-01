@@ -4,7 +4,6 @@ import Button from "../../../Button";
 import React, { ChangeEvent, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { useMediaQuery, Theme } from "@mui/material";
-
 const SubscribeBlock = (): React.ReactElement => {
   const [email, setEmail] = useState<string>("");
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +42,7 @@ const SubscribeBlock = (): React.ReactElement => {
                 fullWidth={true}
               disabled={!Boolean(email)}
               type="primary"
-              color="orange"
+              color="primary"
               onClick={() => {}}
             >
               Subscribe

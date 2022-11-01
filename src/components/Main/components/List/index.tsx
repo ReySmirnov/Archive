@@ -36,7 +36,7 @@ const List = (): React.ReactElement => {
       <Box display="flex" alignItems={"center"} justifyContent={"end"}>
         <Button
           type={"secondary"}
-          color={"grey"}
+          color={"secondary"}
           size={"small"}
           disabled={currentPage === 1}
           onClick={() => setCurrentPage(currentPage - 1)}
@@ -46,7 +46,7 @@ const List = (): React.ReactElement => {
         <Box padding={"10px"}>{currentPage}</Box>
         <Button
           type={"secondary"}
-          color={"grey"}
+          color={"secondary"}
           size={"small"}
           disabled={currentPage === countPage}
           onClick={() => setCurrentPage(currentPage + 1)}
