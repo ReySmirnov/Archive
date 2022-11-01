@@ -1,14 +1,12 @@
 import "./index.css";
 import InputEmail from "../../../Input/InputEmail";
 import Button from "../../../Button";
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { useMediaQuery, Theme } from "@mui/material";
 const SubscribeBlock = (): React.ReactElement => {
   const [email, setEmail] = useState<string>("");
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.currentTarget.value);
-  };
+
   const mobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down(700));
   return (
     <Box display={"flex"} justifyContent={"space-around"}>
@@ -35,7 +33,7 @@ const SubscribeBlock = (): React.ReactElement => {
           alignItems={"center"}
         >
           <Box margin={"5px"} width={mobile?"100%":undefined}>
-            <InputEmail fullWidth={true} size={"small"} value={email} onChange={handleChange} />
+            <InputEmail fullWidth={true} size={"small"} value={email} onChange={setEmail} />
           </Box>
           <Box margin={"5px"} width={mobile?"100%":undefined}>
             <Button
@@ -43,7 +41,7 @@ const SubscribeBlock = (): React.ReactElement => {
               disabled={!Boolean(email)}
               type="primary"
               color="primary"
-              onClick={() => {}}
+              onClick={() => {console.log(email)}}
             >
               Subscribe
             </Button>

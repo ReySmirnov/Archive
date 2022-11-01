@@ -4,6 +4,7 @@ import InputEmail from "../../Input/InputEmail";
 import Button from "../../Button";
 import InputPassword from "../../Input/InputPassword";
 import Modal from "react-modal";
+import NewInput from "../../Input";
 
 Modal.setAppElement("#root");
 

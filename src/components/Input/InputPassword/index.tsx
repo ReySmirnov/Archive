@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent, useState} from "react";
 import NewInput from "../index";
 import { InputAdornment } from "@mui/material";
 import {Key} from "@mui/icons-material";
@@ -12,9 +12,15 @@ const InputPassword = ({
   InputProps,
   ...restProps
 }: InputPasswordProps): React.ReactElement => {
+    const [password, setPassword] = useState<string>("");
+    const handleChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.currentTarget.value);
+    };
   return (
       <NewInput
         {...restProps}
+        value={password}
+        onChange={handleChangePassword}
         placeholder={placeholder}
         type={"password"}
         InputProps={{
