@@ -1,38 +1,35 @@
-import React, {ChangeEvent, useState} from "react";
+import React from "react";
 import NewInput from "../index";
 import { InputAdornment } from "@mui/material";
-import {Key} from "@mui/icons-material";
+import { Key } from "@mui/icons-material";
 import { TextFieldProps } from "@mui/material/TextField/TextField";
 
-type InputPasswordProps = Omit<TextFieldProps, "InputProps"> & {
+type InputPasswordProps = Omit<TextFieldProps, "InputProps" | "onChange"> & {
   InputProps?: Omit<TextFieldProps["InputProps"], "startAdornment">;
+  onChange: (value: string) => void;
 };
 const InputPassword = ({
   placeholder = "Input your password",
   InputProps,
+  onChange,
   ...restProps
 }: InputPasswordProps): React.ReactElement => {
-    const [password, setPassword] = useState<string>("");
-    const handleChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.currentTarget.value);
-    };
   return (
-      <NewInput
-        {...restProps}
-        value={password}
-        onChange={handleChangePassword}
-        placeholder={placeholder}
-        type={"password"}
-        InputProps={{
-          ...InputProps,
+    <NewInput
+      {...restProps}
+      onChange={onChange}
+      placeholder={placeholder}
+      type={"password"}
+      InputProps={{
+        ...InputProps,
 
-          startAdornment: (
-            <InputAdornment position="start">
-              <Key />
-            </InputAdornment>
-          ),
-        }}
-      ></NewInput>
+        startAdornment: (
+          <InputAdornment position="start">
+            <Key />
+          </InputAdornment>
+        ),
+      }}
+    ></NewInput>
   );
 };
 export default InputPassword;

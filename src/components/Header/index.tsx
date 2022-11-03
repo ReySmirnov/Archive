@@ -3,15 +3,24 @@ import { Box } from "@mui/material";
 import Button from "../Button";
 import React from "react";
 import ModalLogin from "../Modal/ModalLogin";
+import ModalSignUp from "../Modal/ModalSignUp";
 
 const Header = () => {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const openModal = () => {
-    setIsOpen(true);
+  const [modalLoginIsOpen, setLoginIsOpen] = React.useState(false);
+  const openModalLogin = () => {
+    setLoginIsOpen(true);
   };
-  const closeModal = () => {
-    setIsOpen(false);
+  const closeModalLogin = () => {
+    setLoginIsOpen(false);
   };
+    const [modalSignUpIsOpen, setSignUpIsOpen] = React.useState(false);
+    const openModalSignUp = () => {
+        setSignUpIsOpen(true);
+    };
+    const closeModalSignUp = () => {
+        setSignUpIsOpen(false);
+    };
+
 
   return (
     <Box margin={"5px"} display={"flex"} justifyContent={"space-between"}>
@@ -19,18 +28,19 @@ const Header = () => {
         <Logo />
       </Box>
       <Box>
-        <Button size={"small"} type={"text"} color={"primary"}>
+        <Button size={"small"} type={"text"} color={"primary"} onClick={openModalSignUp}>
           Sign Up
         </Button>
         <Button
           size={"small"}
           type={"primary"}
           color={"primary"}
-          onClick={openModal}
+          onClick={openModalLogin}
         >
           Log in
         </Button>
-        <ModalLogin open={modalIsOpen} onClose={closeModal}></ModalLogin>
+          <ModalSignUp open={modalSignUpIsOpen} onClose={closeModalSignUp}></ModalSignUp>
+        <ModalLogin open={modalLoginIsOpen} onClose={closeModalLogin}></ModalLogin>
       </Box>
     </Box>
   );
