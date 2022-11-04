@@ -25,22 +25,22 @@ const Header = () => {
   return (
     <Box margin={"5px"} display={"flex"} justifyContent={"space-between"}>
       <Box>
-        <Logo />
+        <Logo/>
       </Box>
       <Box>
-        <Button size={"small"} type={"text"} color={"primary"} onClick={openModalSignUp}>
+        <Button size="small" variant="text" color="primary" onClick={openModalSignUp}>
           Sign Up
         </Button>
         <Button
-          size={"small"}
-          type={"primary"}
-          color={"primary"}
+          size="small"
+          variant="contained"
+          color="primary"
           onClick={openModalLogin}
         >
           Log in
         </Button>
-          <ModalSignUp open={modalSignUpIsOpen} onClose={closeModalSignUp}></ModalSignUp>
-        <ModalLogin open={modalLoginIsOpen} onClose={closeModalLogin}></ModalLogin>
+          <ModalSignUp open={modalSignUpIsOpen} onClose={closeModalSignUp}/>
+        <ModalLogin open={modalLoginIsOpen} onClose={closeModalLogin}/>
       </Box>
     </Box>
   );

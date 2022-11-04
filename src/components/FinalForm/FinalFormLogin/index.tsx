@@ -15,9 +15,6 @@ const onSubmit = async (values: string) => {
 const FinalFormLogin = () => {
   return (
     <Box>
-      <Typography margin="5px" variant={"h5"}>
-        Login
-      </Typography>
       <Form
         onSubmit={onSubmit}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
@@ -69,17 +66,19 @@ const FinalFormLogin = () => {
             <Box margin="5px" display="flex" justifyContent="flex-end">
               <Button
                 size="small"
-                type="primary"
+                type="submit"
+                variant="contained"
                 color="primary"
                 disabled={submitting || pristine}
-                onClick={handleSubmit}
+                // onClick={handleSubmit}
               >
                 Submit
               </Button>
               <Button
                 size="small"
-                type="text"
+                type="reset"
                 color="primary"
+                variant="text"
                 disabled={submitting || pristine}
                 // onClick={form.reset}
               >

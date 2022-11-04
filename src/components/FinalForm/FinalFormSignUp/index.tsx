@@ -15,9 +15,6 @@ const onSubmit = async (values: string) => {
 const FinalFormSignUp = () => {
   return (
     <Box>
-      <Typography margin="5px" variant={"h5"}>
-        Sign Up
-      </Typography>
       <Form
         onSubmit={onSubmit}
         render={({ handleSubmit, form, submitting, pristine, values }) => (
@@ -66,10 +63,33 @@ const FinalFormSignUp = () => {
                 )}
               </Field>
             </Box>
+              <Box
+                  margin="5px"
+                  display={"flex"}
+                  alignItems="center"
+                  justifyContent="space-between"
+              >
+                  <label>
+                      <Typography margin="5px" variant={"body1"}>
+                          Confirm password
+                      </Typography>
+                  </label>
+                  <Field name="password" type="password">
+                      {(propsConfirmPassword) => (
+                          <InputPassword
+                              name="password"
+                              size="small"
+                              value={propsConfirmPassword.input.value}
+                              onChange={propsConfirmPassword.input.onChange}
+                          ></InputPassword>
+                      )}
+                  </Field>
+              </Box>
             <Box margin="5px" display="flex" justifyContent="flex-end">
               <Button
                 size="small"
-                type="primary"
+                type="submit"
+                variant="contained"
                 color="primary"
                 disabled={submitting || pristine}
                 onClick={handleSubmit}
@@ -78,7 +98,8 @@ const FinalFormSignUp = () => {
               </Button>
               <Button
                 size="small"
-                type="text"
+                variant="text"
+                type="reset"
                 color="primary"
                 disabled={submitting || pristine}
                 // onClick={form.reset}

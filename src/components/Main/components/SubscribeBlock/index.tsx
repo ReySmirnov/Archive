@@ -1,4 +1,3 @@
-import "./index.css";
 import InputEmail from "../../../Input/InputEmail";
 import Button from "../../../Button";
 import React, { useState } from "react";
@@ -9,9 +8,9 @@ const SubscribeBlock = (): React.ReactElement => {
 
   const mobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down(700));
   return (
-    <Box display={"flex"} justifyContent={"space-around"}>
-      <Box bgcolor={"#FAFAFA"} borderRadius={"10px"} padding={"10px 40px"}>
-        <Box margin={"10px"} display={"flex"} justifyContent={"space-around"}>
+    <Box display="flex" justifyContent="space-around">
+      <Box bgcolor="#FAFAFA" borderRadius="10px" padding="10px 40px">
+        <Box margin="10px" display="flex" justifyContent="space-around">
           <img
             src="/IconImg/imgClock.jpg"
             height="50"
@@ -19,7 +18,7 @@ const SubscribeBlock = (): React.ReactElement => {
             alt="clock on the hand"
           />
         </Box>
-        <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
+        <Box display="flex" flexDirection="column" alignItems="center">
           <Typography variant="body1" gutterBottom>
             Subscribe and be the first
           </Typography>
@@ -28,18 +27,18 @@ const SubscribeBlock = (): React.ReactElement => {
           </Typography>
         </Box>
         <Box
-          display={"flex"}
+          display="flex"
           flexDirection={mobile ? "column" : "row"}
-          alignItems={"center"}
+          alignItems="center"
         >
-          <Box margin={"5px"} width={mobile?"100%":undefined}>
-            <InputEmail fullWidth={true} size={"small"} value={email} onChange={setEmail} />
+          <Box margin="5px" width={mobile?"100%":undefined}>
+            <InputEmail fullWidth={true} size="small" value={email} onChange={setEmail} />
           </Box>
-          <Box margin={"5px"} width={mobile?"100%":undefined}>
+          <Box margin="5px" width={mobile?"100%":undefined}>
             <Button
                 fullWidth={true}
               disabled={!Boolean(email)}
-              type="primary"
+              variant="contained"
               color="primary"
               onClick={() => {console.log(email)}}
             >
