@@ -7,7 +7,6 @@ import Button from "../../Button";
 import * as yup from "yup";
 import { ValidationError } from "yup";
 
-
 const validationSchema = yup.object().shape({
   Email: yup
     .string()
@@ -24,7 +23,6 @@ const FinalFormLogin = (props: FinalFormLoginProps) => {
     <Box>
       <Form<FormValues>
         onSubmit={props.onSubmit} // window.alert(JSON.stringify(values, undefined, 2));}
-        validateOnBlur
         validate={(values: FormValues) => {
           try {
             validationSchema.validateSync(values, { abortEarly: false });
@@ -50,7 +48,7 @@ const FinalFormLogin = (props: FinalFormLoginProps) => {
               alignItems="center"
               justifyContent="space-between"
             >
-              <label>
+              <label htmlFor="email">
                 <Typography margin="5px" variant="body1">
                   Email
                 </Typography>
@@ -58,6 +56,7 @@ const FinalFormLogin = (props: FinalFormLoginProps) => {
               <Field name="Email" type="Email">
                 {(propsEmail) => (
                   <InputEmail
+                    id="email"
                     size="small"
                     error={propsEmail.meta.touched && propsEmail.meta.invalid}
                     helperText={
@@ -74,7 +73,7 @@ const FinalFormLogin = (props: FinalFormLoginProps) => {
               alignItems="center"
               justifyContent="space-between"
             >
-              <label>
+              <label htmlFor="password">
                 <Typography margin="5px" variant={"body1"}>
                   Password
                 </Typography>
@@ -82,6 +81,7 @@ const FinalFormLogin = (props: FinalFormLoginProps) => {
               <Field name="Password" type="password">
                 {(propsPassword) => (
                   <InputPassword
+                    id="password"
                     error={
                       propsPassword.meta.touched && propsPassword.meta.invalid
                     }
