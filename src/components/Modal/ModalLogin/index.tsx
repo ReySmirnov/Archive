@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import NewModal from "../index";
 import FinalFormLogin, { FormValues } from "../../FinalForm/FinalFormLogin";
 import { Typography } from "@mui/material";
-import { AuthContext } from "../../../App";
 import { login } from "../../../services/login";
+import {AuthContext} from "../../AuthProvider";
 
 type ModalLoginProps = { open: boolean; onClose: () => void };
 

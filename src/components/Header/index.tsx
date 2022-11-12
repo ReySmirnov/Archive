@@ -4,7 +4,8 @@ import Button from "../Button";
 import React, {useContext} from "react";
 import ModalLogin from "../Modal/ModalLogin";
 import ModalSignUp from "../Modal/ModalSignUp";
-import { AuthContext } from "../../App";
+import {AuthContext} from "../AuthProvider";
+
 
 const Header = () => {
   const { value: authValue, setValue: setAuthValue } = useContext(AuthContext);

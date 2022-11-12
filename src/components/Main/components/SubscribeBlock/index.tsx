@@ -3,7 +3,8 @@ import Button from "../../../Button";
 import React, { useContext, useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { useMediaQuery, Theme } from "@mui/material";
-import { AuthContext } from "../../../../App";
+import {AuthContext} from "../../../AuthProvider";
+
 
 const SubscribeBlock = (): React.ReactElement => {
   const [email, setEmail] = useState<string>("");
