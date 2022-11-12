@@ -5,11 +5,15 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 
-import App, { AuthContext } from "../../App";
 import Header from "./index";
+import AuthProvider from "../AuthProvider";
 
 it("should login on submitting form", async () => {
-  render(<App />);
+  render(
+    <AuthProvider>
+      <Header />
+    </AuthProvider>
+  );
 
   fireEvent.click(screen.getByText("Log in"));
 
@@ -31,18 +35,11 @@ it("should login on submitting form", async () => {
 });
 
 test("should logout on click to button LogOut", () => {
-  const setValue = jest.fn();
   render(
-    <AuthContext.Provider
-      value={{
-        value: { userName: "userName", email: "admin@mail.ru" },
-        setValue,
-      }}
-    >
+    <AuthProvider value={{ userName: "userName", email: "admin@mial.ru" }}>
       <Header />
-    </AuthContext.Provider>
+    </AuthProvider>
   );
   fireEvent.click(screen.getByText("Log Out"));
-
-  expect(setValue).toBeCalledWith(null)
+  expect(screen.getByText("Log in")).toBeInTheDocument();
 });

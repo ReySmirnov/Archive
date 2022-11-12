@@ -1,28 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 import Main from "./pages/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Job from "./pages/Job";
 import Company from "./pages/Company";
 import { createTheme, ThemeProvider } from "@mui/material";
-
-type AuthValue = { userName: string; email: string } | null;
+import AuthProvider from "./components/AuthProvider";
 
 const theme = createTheme();
-export const AuthContext = React.createContext<{
-  value: AuthValue;
-  setValue: (value: AuthValue) => void;
-}>({
-  value: null,
-  setValue: () => {},
-});
-const App = () => {
-  const [authContextValue, setAuthContextValue] = useState<AuthValue>(null);
 
+const App = () => {
   return (
-    <AuthContext.Provider
-      value={{ value: authContextValue, setValue: setAuthContextValue }}
-    >
+    <AuthProvider>
       <ThemeProvider theme={theme}>
         <React.StrictMode>
           <BrowserRouter>
@@ -35,7 +24,7 @@ const App = () => {
           </BrowserRouter>
         </React.StrictMode>
       </ThemeProvider>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 };
 export default App;
